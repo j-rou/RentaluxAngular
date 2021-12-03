@@ -1,0 +1,29 @@
+#section_englobante{
+
+  border-style: solid;
+  border-color: blue;
+  border-width: 2px;
+
+}
+
+#div_routeroutlet{
+
+  width: 100%;
+  min-height: 500px;
+  border-style: solid;
+  border-color: red;
+  border-width: 2px;
+
+}
+
+#div_navigation{
+
+   border-style: solid;
+   border-color: aqua;
+   border-width: 2px;
+
+ }
+
+
+
+
