@@ -1,0 +1,28 @@
+
+<div class="div_car-display">
+
+
+
+  <p *ngIf="listEmpty">Aucun véhicule à afficher :(</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="carTab">ID</th>
+        <th class="carTab">Marque</th>
+        <th class="carTab">Modele</th>
+        <th class="carTab">Catégorie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Vehicule of listeVehicule">
+        <td class="carTab">{{Vehicule.id}}</td>
+        <td class="carTab">{{Vehicule.brand}}</td>
+        <td class="carTab">{{Vehicule.model}}</td>
+        <td class="carTab">{{Vehicule.category}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>

@@ -1,1 +1,21 @@
-<p>drop-site works!</p>
+
+<div class="div_drop-site-display">
+
+
+  <table>
+    <thead>
+    <tr>
+      <th class="dropSiteTab">ID</th>
+      <th class="dropSiteTab">Addresse</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let DropSite of dropSiteList">
+      <td class="dropSiteTab">{{DropSite.id}}</td>
+      <td class="dropSiteTab">{{DropSite.address}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>
