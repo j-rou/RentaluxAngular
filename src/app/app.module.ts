@@ -11,6 +11,8 @@ import { FilterComponent } from './components/filter/filter.component';
 import { DisplaycarsComponent } from './components/displaycars/displaycars.component';
 import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { DropSiteComponent } from './components/drop-site/drop-site.component';
+import { SecondHandComponent } from './components/second-hand/second-hand.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     LoginComponent,
     HomeComponent,
     FilterComponent,
-    DisplaycarsComponent
+    DisplaycarsComponent,
+    DropSiteComponent,
+    SecondHandComponent
   ],
   imports: [
     AppRoutingModule,

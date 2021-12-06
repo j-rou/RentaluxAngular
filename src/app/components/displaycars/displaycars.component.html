@@ -2,6 +2,27 @@
 <div class="div_car-display">
 
 
-  <p>Displaycars works!</p>
+
+  <p *ngIf="listEmpty">Aucun véhicule à afficher :(</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="thCarTab">ID</th>
+        <th class="thCarTab">Marque</th>
+        <th class="thCarTab">Modele</th>
+        <th class="thCarTab">Catégorie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Vehicule of listeVehicule">
+        <td class="thCarTab">{{Vehicule.id}}</td>
+        <td class="thCarTab">{{Vehicule.brand}}</td>
+        <td class="thCarTab">{{Vehicule.model}}</td>
+        <td class="thCarTab">{{Vehicule.category}}</td>
+      </tr>
+    </tbody>
+  </table>
+
 
 </div>

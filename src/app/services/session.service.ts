@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {Credentials} from "../models/credentials";
-import {LoginSuccess} from "../models/loginSuccess";
-import {User} from "../models/user.model";
+import {CredentialsModel} from "../models/credentials.model";
+import {LoginSuccessModel} from "../models/loginSuccess.model";
+import {UserModel} from "../models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +18,9 @@ export class SessionService {
 
   constructor(private _client : HttpClient) { }
 
-  login( credentials: Credentials ) {
+  login( credentials: CredentialsModel ) {
 
-    const obs = this._client.post(this._apiUrl+'/login', credentials) as Observable<LoginSuccess>;
+    const obs = this._client.post(this._apiUrl+'/login', credentials) as Observable<LoginSuccessModel>;
     obs.subscribe({
       next: response => {
         sessionStorage.setItem(this._jwtKey, response.jwt);

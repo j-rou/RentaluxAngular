@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
       this._sessionService.login( this.loginForm.value ).subscribe({
         next: () => {
-          this._router.navigateByUrl('/home');
+          this._router.navigateByUrl('/vehicule');
         },
         error: () => {
           this.loginForm.value.password = '';
