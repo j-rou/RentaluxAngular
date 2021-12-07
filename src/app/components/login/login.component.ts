@@ -32,9 +32,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
 
-
     if( this.loginForm.valid ){
-
       this._sessionService.login( this.loginForm.value ).subscribe({
         next: () => {
           this._router.navigateByUrl('/vehicule');

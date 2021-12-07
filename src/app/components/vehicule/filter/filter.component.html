@@ -5,40 +5,47 @@
   <p>FILTRAGE : </p>
 
   <a>Marque : </a>
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" (onClick)="checkRenault()" >
   <label class="form-check-label" for="flexCheckDefault1">
     Renault
   </label>
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" (onClick)="checkFord()" >
   <label class="form-check-label" for="flexCheckDefault2">
     Ford
   </label>
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3" (onClick)="checkFiat()" >
   <label class="form-check-label" for="flexCheckDefault3">
     Fiat
   </label>
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4" (onClick)="checkVW()" >
   <label class="form-check-label" for="flexCheckDefault4">
     VolksWagen
   </label>
   <p></p>
   <a>Catégorie : </a>
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5" (onClick)="checkUtil()" >
   <label class="form-check-label" for="flexCheckDefault5">
     Utilitaire
   </label>
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6" (onClick)="checkLoisir()">
   <label class="form-check-label" for="flexCheckDefault6">
     Loisir
   </label>
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7" (onClick)="checkLuxe()">
   <label class="form-check-label" for="flexCheckDefault7">
     Luxe
   </label>
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault8">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault8" (onClick)="checkEvent()">
   <label class="form-check-label" for="flexCheckDefault8">
-    Mariage
+    Event
   </label>
+
+  <p></p>
+  <form (ngSubmit)="onSubmit()">
+    <button type="submit" class="btn btn-primary">Filtrer</button>
+  </form>
+
+
 
 
 </div>

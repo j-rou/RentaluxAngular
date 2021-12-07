@@ -5,7 +5,7 @@
 
   <p *ngIf="listEmpty">Aucun véhicule à afficher :(</p>
 
-  <table>
+  <table *ngIf = "!listEmpty">
     <thead>
       <tr>
         <th class="carTab">ID</th>

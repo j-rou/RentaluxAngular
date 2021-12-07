@@ -1,8 +1,9 @@
 
 <div class="div_drop-site-display">
 
+  <p *ngIf="listEmpty">Aucun drop site à afficher :(</p>
 
-  <table>
+  <table *ngIf = "!listEmpty">
     <thead>
     <tr>
       <th class="dropSiteTab">ID</th>

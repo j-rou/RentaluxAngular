@@ -10,8 +10,15 @@ import {VehiculeModel} from "../../models/vehicule.model";
 })
 export class VehiculeComponent implements OnInit {
 
+  vehiculeListFromVehicule : VehiculeModel[] = [];
+
 
   ngOnInit(): void {
+  }
+
+  reactToChildren($event: VehiculeModel[]) {
+        this.vehiculeListFromVehicule = $event;
+
   }
 
 }

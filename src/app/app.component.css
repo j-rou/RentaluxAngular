@@ -24,6 +24,19 @@
 
  }
 
+#div_liens_externes{
 
+  text-align: center;
+  text-decoration: underline;
+  width: 100%;
+  min-height: 500px;
+  border-style: solid;
+  border-color: red;
+  border-width: 2px;
 
+}
+
+.logo{
+  width: 30%;
+}
 

@@ -9,30 +9,31 @@ import {DropSiteService} from "../../services/drop-site.service";
 })
 export class DropSiteComponent implements OnInit {
 
+  listEmpty = false;
+
   constructor(private _service : DropSiteService) {
   }
 
-
-  dropSiteList : DropSiteModel[] = [{
-    id: 1,
-    address: "Rue des fraises"
-  },{
-    id: 2,
-    address: "Rue des framboises"
-  },{
-    id: 3,
-    address: "Rue des bananes"
-  },{
-    id: 4,
-    address: "Rue des pommes"
-  }
-
-  ];
+  dropSiteList : DropSiteModel[] =[];
+  // dropSiteList : DropSiteModel[] = [{
+  //   id: 1,
+  //   address: "Rue des fraises"
+  // },{
+  //   id: 2,
+  //   address: "Rue des framboises"
+  // },{
+  //   id: 3,
+  //   address: "Rue des bananes"
+  // },{
+  //   id: 4,
+  //   address: "Rue des pommes"
+  // }
+  //
+  // ];
 
 
   ngOnInit(): void {
-
-
+    this.listEmpty = true;
 
     /* Le service fournit un observable de tableau de dropSite. */
     /* Une fonction flechée est executée lors que l'observable indique qu'il a recu quelque chose.  */
@@ -45,13 +46,16 @@ export class DropSiteComponent implements OnInit {
     this._service.getAll().subscribe({
       next: dropSiteTab => {
         this.dropSiteList = dropSiteTab;
+        this.listEmpty = false;
         if(this.dropSiteList.length == 0){
           console.log("La DB est accessible mais la liste est vide.");
+          this.listEmpty = true;
         }
       },
       error: () =>{
         console.log("La DB est inaccessible.");
         alert("Impossible de se connecter à la base de donnée.");
+        this.listEmpty = true;
       },
       complete: () => console.log("fini")
     })
