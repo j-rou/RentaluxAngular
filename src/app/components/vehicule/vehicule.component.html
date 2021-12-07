@@ -1,6 +1,9 @@
 
 
-<app-filter></app-filter>
 
 
-<app-displaycars (filterEvent)="reactToChildren($event)"  [vehiculeListFromDisplay]= vehiculeListFromVehicule></app-displaycars>
+
+
+<app-filter (filterEvent)="reactToChildren($event)"></app-filter>
+
+<app-displaycars [vehiculeListFromDisplay] = vehiculeListFromVehicule></app-displaycars>

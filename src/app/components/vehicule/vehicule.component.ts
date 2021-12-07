@@ -18,7 +18,7 @@ export class VehiculeComponent implements OnInit {
 
   reactToChildren($event: VehiculeModel[]) {
         this.vehiculeListFromVehicule = $event;
-
   }
+
 
 }

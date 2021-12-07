@@ -1,9 +1,10 @@
 
 <div class="div_car-display">
 
-
-
   <p *ngIf="listEmpty">Aucun véhicule à afficher :(</p>
+
+
+  {{display()}}
 
   <table *ngIf = "!listEmpty">
     <thead>
@@ -15,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let Vehicule of listeVehicule">
+      <tr *ngFor="let Vehicule of vehiculeListFromDisplay">
         <td class="carTab">{{Vehicule.id}}</td>
         <td class="carTab">{{Vehicule.brand}}</td>
         <td class="carTab">{{Vehicule.model}}</td>
@@ -23,6 +24,5 @@
       </tr>
     </tbody>
   </table>
-
 
 </div>

@@ -13,6 +13,7 @@ export class FilterComponent implements OnInit {
   vehiculeListFromFilter : VehiculeModel[] = [];
 
   @Output() filterEvent : EventEmitter<VehiculeModel[]>;
+
   constructor(private _service : VehiculeService) {
     this.filterEvent = new EventEmitter<VehiculeModel[]> ();
   }
@@ -31,19 +32,18 @@ export class FilterComponent implements OnInit {
     * Puis on eecute complete si NEXT est succesful */
     this._service.getAll().subscribe({
       next: vehiculeTab => {
-        this.vehiculeListFromFilter = vehiculeTab;
         this.listEmpty = false;
+        this.vehiculeListFromFilter = vehiculeTab;
         if (this.vehiculeListFromFilter.length == 0) {
-          console.log("La DB est accessible mais la liste est vide.");
           this.listEmpty = true;
         }
+        this.filterEvent.emit(this.vehiculeListFromFilter);
       },
       error: () => {
         console.log("La DB est inaccessible.");
         alert("Impossible de se connecter à la base de donnée.");
-        this.listEmpty = true;
       },
-      complete: () => console.log("fini")
+      complete: () => console.log("DB Access Successful")
     })
 
   }
@@ -85,4 +85,11 @@ export class FilterComponent implements OnInit {
   onSubmit() {
     console.log("Filtrage");
   }
+
+  reactTo(){
+    console.log("REACTION")
+    this.filterEvent.emit(this.vehiculeListFromFilter);
+  }
+
+
 }

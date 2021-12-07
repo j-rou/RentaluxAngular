@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {VehiculeModel} from "../../../models/vehicule.model";
-import {VehiculeService} from "../../../services/vehicule.service";
 
 
 @Component({
@@ -12,18 +11,21 @@ export class DisplaycarsComponent implements OnInit {
   listEmpty = true;
 
   @Input()
-  vehiculeListFromDisplay : VehiculeModel[] = [];
+  vehiculeListFromDisplay : VehiculeModel[];
 
-
-  ngOnInit(): void {
-      if(this.vehiculeListFromDisplay.length == 0){
-        console.log("La DB est accessible mais la liste est vide.");
-      }
-
+  constructor() {
+    this.vehiculeListFromDisplay = [];
   }
 
+  ngOnInit(): void {}
 
-
-
+  display() {
+    if(this.vehiculeListFromDisplay.length == 0){
+      this.listEmpty = true;
+    }
+    else {
+      this.listEmpty = false;
+    }
+  }
 
 }
