@@ -1,12 +1,13 @@
-.div_scHand-display{
 
-  border: 2px solid darkslategray;
 
+
+.workInProgress{
+  width: 100%;
 }
 
-.carTab{
+#div_inSecondHand{
 
-  border: 2px solid brown;
-  padding: 10px;
-
+  min-height: 100px;
+  min-width: 100px;
+  border: orange dashed 2px;
 }

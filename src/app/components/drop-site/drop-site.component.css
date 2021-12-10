@@ -1,12 +1,13 @@
 .div_drop-site-display{
 
-  border: 2px solid darkslategray;
-
+  border: 2px solid rgb(80,80,80);
+  border-radius: 10px;
 }
 
 .dropSiteTab{
 
-  border: 2px solid brown;
+  /*border: 2px solid brown;*/
   padding: 10px;
+  text-align: left;
 
 }
