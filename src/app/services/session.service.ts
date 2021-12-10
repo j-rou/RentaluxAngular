@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {CredentialsModel} from "../models/credentials.model";
 import {LoginSuccessModel} from "../models/loginSuccess.model";
-import {UserModel} from "../models/user.model";
 import {Router} from "@angular/router";
 
 @Injectable({
@@ -66,9 +65,9 @@ export class SessionService {
   }
 
 
-  getApiKey(): string{
-    return sessionStorage.getItem(this._jwtKey) as string;
-  }
+  // getApiKey(): string{
+  //   return sessionStorage.getItem(this._jwtKey) as string;
+  // }
 
 
 
