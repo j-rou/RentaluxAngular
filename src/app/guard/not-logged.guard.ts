@@ -10,7 +10,7 @@ import {SessionService} from "../services/session.service";
 @Injectable({
   providedIn: 'root'
 })
-export class LoggedGuard implements CanActivate {
+export class NotLoggedGuard implements CanActivate {
 
   constructor( private router: Router, private _sessionService: SessionService){}
 
@@ -18,11 +18,11 @@ export class LoggedGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
     if( this._sessionService.isLogged() ){
-      return true;
+      this.router.navigateByUrl("/home");
+      return false;
     }
     else {
-      this.router.navigateByUrl("/login");
-      return false;
+      return true;
     }
   }
 

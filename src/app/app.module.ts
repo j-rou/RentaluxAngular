@@ -13,6 +13,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {DropSiteComponent} from './components/drop-site/drop-site.component';
 import { SecondHandComponent } from './components/second-hand/second-hand.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ManagementComponent } from './components/management/management.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import { SecondHandComponent } from './components/second-hand/second-hand.compon
     DisplaycarsComponent,
     DropSiteComponent,
     SecondHandComponent,
+    UserProfileComponent,
+    ManagementComponent,
+    CreateAccountComponent,
   ],
   imports: [
     AppRoutingModule,

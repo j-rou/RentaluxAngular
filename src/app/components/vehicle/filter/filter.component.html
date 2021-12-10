@@ -38,15 +38,14 @@
       <li *ngFor="let requestedBrand of requestedBrandList">
 
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{requestedBrand.name}}
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-            <li *ngFor="let availableModel of availableModelList">
-              <input *ngIf="modelOfBrand(requestedBrand,availableModel)" class="form-check-input" type="checkbox"  value="" (change)="reactToModelCheck(availableModel)">
-              <label *ngIf="modelOfBrand(requestedBrand,availableModel)" class="form-check-label" >{{availableModel}}</label>
-            </li>
-          </ul>
+          <a>{{requestedBrand.name}}</a>
+
+          <a *ngFor="let availableModel of availableModelList">
+            <br *ngIf="modelOfBrand(requestedBrand,availableModel)" >
+            <input *ngIf="modelOfBrand(requestedBrand,availableModel)" class="form-check-input" type="checkbox"  value="" (change)="reactToModelCheck(availableModel)">
+            <label *ngIf="modelOfBrand(requestedBrand,availableModel)" class="form-check-label" >{{availableModel}}</label>
+          </a>
+
         </div>
 
       </li>

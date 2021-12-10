@@ -1,23 +1,19 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
+import { Observable } from 'rxjs';
 import {SessionService} from "../services/session.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoggedGuard implements CanActivate {
+export class LoggedAsAdminGuard implements CanActivate {
 
   constructor( private router: Router, private _sessionService: SessionService){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    if( this._sessionService.isLogged() ){
+    if( this._sessionService.isLogged() && this._sessionService.getTypeOfConnectedUser()=='admin'){
       return true;
     }
     else {
@@ -25,6 +21,5 @@ export class LoggedGuard implements CanActivate {
       return false;
     }
   }
-
 
 }

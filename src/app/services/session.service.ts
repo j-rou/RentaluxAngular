@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {CredentialsModel} from "../models/credentials.model";
 import {LoginSuccessModel} from "../models/loginSuccess.model";
 import {UserModel} from "../models/user.model";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,14 @@ import {UserModel} from "../models/user.model";
 export class SessionService {
 
 
-  private readonly _usernameKey = "connectedUser";
+  private readonly _apiUrl = "http://localhost:8080";
+
   private readonly _jwtKey = "api-jwt";
-  private readonly _apiUrl = "http://localhost:8080"
+  private readonly _usernameKey = "connectedUser";
+  private readonly _userTypeKey = "connectedUserType";
 
 
-  constructor(private _client : HttpClient) { }
+  constructor(private _router: Router, private _client : HttpClient) { }
 
   login( credentials: CredentialsModel ) {
 
@@ -25,7 +28,17 @@ export class SessionService {
       next: response => {
         sessionStorage.setItem(this._jwtKey, response.jwt);
         sessionStorage.setItem(this._usernameKey, response.username);
+        sessionStorage.setItem(this._userTypeKey, response.userType);
+
+        // if(response.userType == "admin"){
+        //   this._router.navigateByUrl('management');
+        // }
+        // else{
+        //   this._router.navigateByUrl('userprofile');
+        // }
+
       }
+
     })
     return obs;
 
@@ -34,6 +47,7 @@ export class SessionService {
   logout() {
     sessionStorage.removeItem(this._usernameKey);
     sessionStorage.removeItem(this._jwtKey);
+    sessionStorage.removeItem(this._userTypeKey);
   }
 
   isLogged(){
@@ -46,6 +60,11 @@ export class SessionService {
   getConnectedUser(): string {
     return sessionStorage.getItem(this._usernameKey) as string;
   }
+
+  getTypeOfConnectedUser(): string {
+    return sessionStorage.getItem(this._userTypeKey) as string;
+  }
+
 
   getApiKey(): string{
     return sessionStorage.getItem(this._jwtKey) as string;

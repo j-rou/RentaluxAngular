@@ -1,14 +1,18 @@
 
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
   <div class="mb-3">
-    <label for="inputUsername" class="form-label">username</label>
-    <input type="text" formControlName="username" class="form-control" id="inputUsername">
+    <label for="inputUsername" class="form-label">E-mail</label>
+    <input type="text" formControlName="username" class="form-control" id="inputUsername" placeholder="Entrez votre adresse e-mail.">
   </div>
 
   <div class="mb-3">
-    <label for="inputPassword" class="form-label">Password</label>
-    <input type="password" formControlName="password" class="form-control" id="inputPassword">
+    <label for="inputPassword" class="form-label">Mot de passe</label>
+    <input type="password" formControlName="password" class="form-control" id="inputPassword" placeholder="Entrez votre mot de passe rentalux">
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button [disabled]="!loginForm.valid"  type="submit" class="btn btn-primary">Se connecter</button>
+
+  <p>Pas encore membre? <a routerLink="/createaccount">Créez un compte gratuit!</a></p>
+
 </form>

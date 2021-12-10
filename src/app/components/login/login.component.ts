@@ -28,22 +28,31 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   onSubmit(){
 
     if( this.loginForm.valid ){
       this._sessionService.login( this.loginForm.value ).subscribe({
-        next: () => {
-          this._router.navigateByUrl('/vehicule');
+
+        next: (  param ) => {
+          if(param.userType == "admin"){
+            this._router.navigateByUrl('/management');
+          }
+          else{
+            this._router.navigateByUrl('/userprofile');
+          }
         },
         error: () => {
           this.loginForm.value.password = '';
           alert('identifiants invalides');
         }
+
       })
 
     }
   }
+
 
 }
