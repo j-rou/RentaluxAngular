@@ -56,5 +56,25 @@
 
   <button  (click)="displayRequested()" type="submit" class="btn btn-primary">Filtrer</button>
 
+<!-- FIN DES DROPS DOWN DE FILTRAGE VEHICULES  -->
+
+
+<!-- DROPS DOWN CALENDRIERS  -->
+
+<!--  <form [formGroup]="offreFormGroup" (ngSubmit)="onSubmit()" class="row g-3">-->
+<form class="row g-3">
+  <div *ngIf="isLoggedAsUser()" class="col-md-6">
+    <label for="inputdateB" class="form-label">Début de location</label>
+    <input type="date" class="form-control" id="inputdateB" >
+<!--    <input type="date" class="form-control" id="inputdateB" formControlName="dateDepart" formControlName="dateDepart" >-->
+  </div>
+  <div *ngIf="isLoggedAsUser()" class="col-md-6">
+    <label for="inputdateA" class="form-label">Fin de location</label>
+    <input type="date" class="form-control" id="inputdateA">
+<!--    <input type="date" class="form-control" id="inputdateA" formControlName="dateArrive" formControlName="dateArrive" >-->
+  </div>
+</form>
+
+<br>
 
 </div>

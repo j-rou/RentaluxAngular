@@ -50,4 +50,5 @@
   background-color: rgb(240, 240, 240);
   border: 10px solid rgb(240, 240, 240);
   min-width: 500px;
+  max-width: 850px;
 }

@@ -1,0 +1,71 @@
+
+<p *ngIf="vehicle == null">  Ce véhicule n'existe pas. Merci de ne pas jouer avec les URLs. </p>
+
+<div *ngIf="vehicle != null">
+
+  <p>Veuillez choisir une période de location :</p>
+
+  <form class="row g-3" [formGroup]="rentForm" (ngSubmit)="validateRental()">
+    <div class="col-md-6">
+      <label for="startDate" class="form-label">Début de location</label>
+      <input type="date" class="form-control" id="startDate" formControlName="startDate">
+    </div>
+    <div class="col-md-6">
+      <label for="endDate" class="form-label">Fin de location</label>
+      <input type="date" class="form-control" id="endDate" formControlName="endDate">
+    </div>
+
+    <a class="erreurDate" *ngIf="!rentForm.valid">Vous devez sélectionner une date de début et de fin.</a>
+    <a class="erreurDate" *ngIf="rentForm.valid && this.rentForm.value.startDate > this.rentForm.value.endDate">Erreur: la date de fin ne peut pas se trouver avant la date de début. </a>
+
+    <br>
+
+    <table>
+      <thead>
+      <tr>
+        <th class="carTab">ID</th>
+        <th class="carTab">Marque</th>
+        <th class="carTab">Modele</th>
+        <th class="carTab">Usage</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="carTab">{{vehicle.id}}</td>
+        <td class="carTab">{{vehicle.brand.name}}</td>
+        <td class="carTab">{{vehicle.model}}</td>
+        <td class="carTab">{{vehicle.usage.name}}</td>
+        <td class="carTab">
+          <button [disabled]="!rentForm.valid || this.rentForm.value.startDate > this.rentForm.value.endDate " type="submit" class="btn btn-primary">Vérifier la<br>disponibilité</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </form>
+
+  <div class="erreurDate" *ngIf="vehicleIsAvailable == false"> Ce véhicule n'est pas disponible à cette date... :( </div>
+
+  <div class="div_profileInfoConfirm" *ngIf="vehicleIsAvailable == true">
+    <div class="div_vehicleAvailable">
+      <p>Ce véhicule est disponible... :) <br>Les informations suivantes sont elles correctes? :</p>
+    </div>
+    <br>
+    <div class="div_profileInfo">
+      <p><strong>Votre nom :</strong><a *ngIf="profile"> {{profile.firstname}}</a></p>
+      <p><strong>Votre prénom :</strong><a *ngIf="profile"> {{profile.lastname}}</a></p>
+      <p><strong>Votre email :</strong><a *ngIf="profile"> {{profile.email}}</a></p>
+      <p><strong>Votre adresse :</strong><a *ngIf="profile"> {{profile.address}}</a></p>
+      <p><strong>Votre numéro de téléphone :</strong><a *ngIf="profile"> {{profile.tel}}</a></p>
+      <p><strong>Votre numéro de TVA :</strong><a *ngIf="profile && profile.tva.length>0 "> {{profile.tva}}</a><a *ngIf="profile && profile.tva.length<=0 ">Non renseigné.</a></p>
+    </div>
+    <br><br>
+    <div class="div_confirmedReservation">
+      <button [disabled]="!vehicleIsAvailable || this.rentForm.value.startDate > this.rentForm.value.endDate" (click)="confirmRental()" class="btn btn-primary"> C'est correct !<br>Valider la réservation.</button>
+      <p *ngIf="rentalConfirmed"><br>Votre réservation est enregistrée.<br>Vous allez reçevoir un e-mail de confirmation reprenant les informations de payement.</p>
+    </div>
+  </div>
+
+
+
+</div>

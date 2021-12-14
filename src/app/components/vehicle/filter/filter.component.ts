@@ -1,9 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {VehicleModel} from "../../../models/vehicle.model";
-import {VehicleService} from "../../../services/vehicle.service";
+import {VehicleService} from "../../../services/vehicles/vehicle.service";
 import {BrandModel} from "../../../models/brand.model";
 import {UsageModel} from "../../../models/usage.model";
-import {conditionallyCreateMapObjectLiteral} from "@angular/compiler/src/render3/view/util";
+import {SessionService} from "../../../services/session/session.service";
 
 
 @Component({
@@ -27,7 +27,7 @@ export class FilterComponent implements OnInit {
 
   @Output() filterEvent: EventEmitter<VehicleModel[]>;
 
-  constructor(private _service: VehicleService) {
+  constructor(private _vehicleService: VehicleService , private _sessionService : SessionService) {
     this.filterEvent = new EventEmitter<VehicleModel[]>();
   }
 
@@ -44,7 +44,7 @@ export class FilterComponent implements OnInit {
     * alors on execute ERROR
     * Puis on eecute complete si NEXT est succesful
     * */
-    this._service.getAll().subscribe({
+    this._vehicleService.getAll().subscribe({
       next: vehicleTab => {
         this.listEmpty = false;
         this.vehicleListFromFilter = vehicleTab;
@@ -192,5 +192,17 @@ export class FilterComponent implements OnInit {
       return false;
     }
   }
+
+
+
+  isLoggedAsUser() {
+    if(this._sessionService.getTypeOfConnectedUser()=='user') {
+      return true;
+    }
+    else{return false;}
+  }
+
+
+
 
 }

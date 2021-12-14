@@ -1,15 +1,15 @@
 
 <div class="inUserProfileIncluder">
 
-  <p> Bienvenue dans votre profil </p>
+  <p> Bienvenue sur votre profil </p>
 
-  <p> Bienvenue dans votre profil </p>
-
-  <p> Bienvenue dans votre profil </p>
-
-  <p> Bienvenue dans votre profil </p>
-
-  <p> Bienvenue dans votre profil </p>
+  <p *ngIf="profile">Voici vos infos personnelles : </p>
+  <p> Votre nom : <a *ngIf="profile"> {{profile.firstname}}</a></p>
+  <p> Votre prénom : <a *ngIf="profile"> {{profile.lastname}}</a></p>
+  <p> Votre email : <a *ngIf="profile"> {{profile.email}}</a></p>
+  <p> Votre adresse : <a *ngIf="profile"> {{profile.address}}</a></p>
+  <p> Votre numéro de téléphone : <a *ngIf="profile"> {{profile.tel}}</a></p>
+  <p> Votre numéro de TVA : <a *ngIf="profile && profile.tva.length>0 "> {{profile.tva}}</a><a *ngIf="profile && profile.tva.length<=0 ">Non renseigné.</a></p>
 
 
 </div>

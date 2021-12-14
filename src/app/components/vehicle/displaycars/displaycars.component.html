@@ -19,7 +19,8 @@
         <td class="carTab">{{vehicle.model}}</td>
         <td class="carTab">{{vehicle.usage.name}}</td>
         <td class="carTab">
-          <button  (click)="bookVehicule(vehicle.id)" type="submit" class="btn btn-primary">Réserver</button>
+<!--          <button [disabled]="!isLoggedAsUser()" (click)="bookVehicule(vehicle.id)" type="submit" class="btn btn-primary">Réserver</button>-->
+          <button [disabled]="!isLoggedAsUser()" routerLink="/rentvalidation/{{vehicle.id}}" type="submit" class="btn btn-primary">Réserver</button>
         </td>
       </tr>
     </tbody>

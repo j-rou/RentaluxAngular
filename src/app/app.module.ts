@@ -16,6 +16,7 @@ import { SecondHandComponent } from './components/second-hand/second-hand.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ManagementComponent } from './components/management/management.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { RentValidationComponent } from './components/rent-validation/rent-validation.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     UserProfileComponent,
     ManagementComponent,
     CreateAccountComponent,
+    RentValidationComponent,
   ],
   imports: [
     AppRoutingModule,

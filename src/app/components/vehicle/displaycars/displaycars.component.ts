@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {VehicleModel} from "../../../models/vehicle.model";
+import {SessionService} from "../../../services/session/session.service";
 
 
 @Component({
@@ -12,10 +13,20 @@ export class DisplaycarsComponent implements OnInit {
   @Input()
   vehicleListFromDisplay : VehicleModel[]=[];
 
-  constructor() {}
+  constructor(private _sessionService: SessionService) {}
   ngOnInit(): void {}
 
-  bookVehicule(id : number) {
-    console.log("\nRéservation de la voiture portant l'id : " + id );
+
+  isLoggedAsUser() {
+    if(this._sessionService.getTypeOfConnectedUser()=='user') {
+      return true;
+    }
+    else{return false;}
   }
+
+
+
+
+
+
 }

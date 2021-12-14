@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, observable} from "rxjs";
-import {VehicleModel} from "../models/vehicle.model";
+import {Observable} from "rxjs";
+import {VehicleModel} from "../../models/vehicle.model";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,10 @@ export class VehicleService {
 
   }
 
+
+  getOneById(vehicleId: number) {
+    return <Observable<VehicleModel>>this._client.get(this._apiUrl + "/vehicle/getone?id="+ vehicleId);
+
+  }
 
 }

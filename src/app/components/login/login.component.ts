@@ -1,16 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SessionService } from 'src/app/services/session.service';
+import { SessionService } from 'src/app/services/session/session.service';
 
-function nonBlank(control: AbstractControl): ValidationErrors | null {
-  if( control.value != null && (control.value as string).trim().length != 0  )
-    return null;
-
-  return {
-    'emptyField': 'Le champ est vide'
-  }
-}
 
 @Component({
   selector: 'app-login',
@@ -23,6 +15,7 @@ export class LoginComponent implements OnInit {
     'username': new FormControl('', [Validators.required, nonBlank]),
     'password': new FormControl('', [Validators.required, nonBlank])
   })
+
 
   constructor( private _router: Router, private _sessionService: SessionService ) {
   }
@@ -42,6 +35,7 @@ export class LoginComponent implements OnInit {
           }
           else{
             this._router.navigateByUrl('/userprofile');
+
           }
         },
         error: () => {
@@ -55,4 +49,13 @@ export class LoginComponent implements OnInit {
   }
 
 
+}
+
+function nonBlank(control: AbstractControl): ValidationErrors | null {
+  if( control.value != null && (control.value as string).trim().length != 0  )
+    return null;
+
+  return {
+    'emptyField': 'Le champ est vide'
+  }
 }

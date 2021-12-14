@@ -1,0 +1,33 @@
+.carTab{
+  /*border: 2px solid brown;*/
+  width: 120px;
+}
+
+.erreurDate{
+  color:red;
+}
+
+
+.div_profileInfoConfirm{
+  text-align: center;
+}
+
+    .div_vehicleAvailable{
+      display: inline-block;
+      text-align: center;
+    }
+
+    .div_profileInfo{
+      display: inline-block;
+      border: 2px solid rgb(80,80,80);
+      border-radius: 10px;
+      text-align: left;
+      width: 500px;
+      padding: 10px;
+    }
+
+    .div_confirmedReservation{
+      padding-bottom: 20px;
+      display: inline-block;
+      text-align: center;
+    }

@@ -8,9 +8,10 @@
       <a class="navLink" routerLink="/vehicle">Vehicules</a>
       <a class="navLink" routerLink="/dropsite">DropSites</a>
       <a class="navLink" routerLink="/secondhand">Occasions</a>
-      <a *ngIf="isLogged()" class="navLink" routerLink="/userprofile">Profil</a>
+      <a *ngIf="isLoggedAsUser()" class="navLink" routerLink="/userprofile">Profil</a>
+      <a *ngIf="isLoggedAsAdmin()" class="navLink" routerLink="/management">Administration</a>
       <a *ngIf="!isLogged()" class="navLink" routerLink="/login">Log In</a>
-      <a *ngIf="isLogged()" (click)="logOut()" routerLink="/home" class="navLink"> Log out </a>
+      <a *ngIf="isLogged()" (click)="logOut()" routerLink="/home" class="navLink">Log out</a>
 
     </div>
 
